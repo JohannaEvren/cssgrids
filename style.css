@@ -3,9 +3,9 @@ body {
 	background-size: 90%;
 }
 
-section, div {
-	border: 1px solid #333;
-}
+
+/* MOBILE VERSION */
+section, div {border: 1px solid #333;}
 
 .section1 {grid-area: header;}
 
@@ -34,10 +34,9 @@ section, div {
 	"footer2 footer2 footer2 footer2"
 	"footer3 footer3 footer3 footer3"
 	"footer4 footer4 footer4 footer4";
-
-	grid-gap: 2% 2%;
 }
 
+[class*="footer"]{margin: 2%;}
 
 
 .container {
@@ -46,7 +45,6 @@ section, div {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows:repeat(6, minmax(200px, 1fr));
-
 	grid-template-areas:
 		"header header header header"
 		"box1 box1 box1 box1"
@@ -55,16 +53,17 @@ section, div {
 		"Content Content Content Content"
 		"sidebar sidebar sidebar sidebar"
 		"footer footer footer footer";
-
 	grid-gap: 2% 2%;
 }
 
 
-@media only screen and (min-width: 768px)  {
+/*TABLETS*/
+
+@media only screen and (max-width: 959px) and (min-width: 768px)  {
 
 	.container{
-
 		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows:repeat(3, minmax(200px, 1fr));
 		grid-template-areas:
 		"header header header header header header"
 		"box1 box1 box2 box2 box3 box3"
@@ -75,9 +74,59 @@ section, div {
 
 	.section7 {
 		grid-template-columns: repeat(4,1fr);
-		grid-template-rows: repeat(2,1fr);
+		grid-template-rows: repeat(2, minmax(200px, 1fr));
 		grid-template-areas: 
 		"footer1 footer1 footer2 footer2"
 		"footer3 footer3 footer4 footer4";
 	}
+}
+
+/*SMALL SCREENS*/
+@media only screen and (max-width: 1199px) and (min-width: 960px){
+
+	.container{
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows:repeat(3, minmax(200px, 1fr));
+		grid-template-areas:
+		"header header header header header header header header header header header header"
+		"box1 box1 box1 box2 box2 box2 box2 box2 box2 box3 box3 box3"
+		"Content Content Content Content Content Content Content Content sidebar sidebar sidebar sidebar"
+		"footer footer footer footer footer footer footer footer footer footer footer footer";
+	}
+
+
+	.section7 {
+		grid-template-columns: repeat(4,1fr);
+		grid-template-rows: repeat(1, minmax(200px, 1fr));
+		grid-template-areas: 
+		"footer1 footer2 footer3 footer4";
+	}
+
+[class*="footer"]{margin: 4%;}
+}
+
+/*BIG SCREENS*/
+
+@media only screen and (min-width: 1200px){
+
+	.container{
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows:repeat(3, minmax(200px, 1fr));
+		grid-template-areas:
+		"header header header header header header header header header header header header"
+		"box1 box1 box2 box2 box2 box2 box2 box2 box2 box2 box3 box3"
+		"Content Content Content Content Content Content Content Content Content sidebar sidebar sidebar"
+		"footer footer footer footer footer footer footer footer footer footer footer footer";
+	}
+
+
+	.section7 {
+		grid-template-columns: repeat(4,1fr);
+		grid-template-rows: repeat(1, minmax(200px, 1fr));
+		grid-template-areas: 
+		"footer1 footer2 footer3 footer4";
+	}
+
+	[class*="footer"]{margin: 4%;}
+
 }
